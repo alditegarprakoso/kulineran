@@ -1,0 +1,7 @@
+* {
+  font-family: "Quicksand", sans-serif;
+}
+.router-link-exact-active {
+  font-weight: 700;
+  color: #289672 !important;
+}
