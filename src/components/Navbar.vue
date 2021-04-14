@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Kulineran</a>
+      <a class="navbar-brand" href="#"><strong>Kulineran</strong></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -28,7 +28,7 @@
             <router-link class="nav-link" to="/cart"
               >Cart
               <b-icon-bag class="ml-2"></b-icon-bag>
-              <span class="badge badge-success ml-2">0</span>
+              <span class="badge badge-success ml-2 foods-cart">0</span>
             </router-link>
           </li>
         </ul>
