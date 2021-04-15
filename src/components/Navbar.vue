@@ -27,7 +27,7 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/cart"
               >Cart
-              <b-icon-bag class="ml-2"></b-icon-bag>
+              <b-icon-cart class="ml-2"></b-icon-cart>
               <span class="badge badge-success ml-2 foods-cart">0</span>
             </router-link>
           </li>

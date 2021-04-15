@@ -1,15 +1,39 @@
 * {
   font-family: "Quicksand", sans-serif;
 }
+
 .router-link-exact-active {
   font-weight: 700;
   color: #289672 !important;
 }
+
 .order-now {
   background-color: #289672;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.order-now:hover {
+  background-color: #20614b;
   color: #ffffff;
   font-weight: 700;
 }
+
+.best-foods,
+.best-foods:hover {
+  color: #289672;
+  font-weight: 700;
+  text-decoration: none;
+}
+.hero-p {
+  color: #289672;
+  font-weight: 700;
+}
+
 .foods-cart {
   background-color: #289672;
+}
+
+.card-title {
+  font-weight: 500;
 }
