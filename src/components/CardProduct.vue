@@ -4,6 +4,7 @@
       :src="'assets/images/foods/' + product.gambar"
       class="card-img-top"
       alt="..."
+      height="200"
     />
     <div class="card-body">
       <h5 class="card-title">
