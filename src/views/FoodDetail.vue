@@ -28,7 +28,7 @@
           <h5>
             Harga: <strong>Rp. {{ product.harga }}</strong>
           </h5>
-          <form action="" class="mt-3">
+          <form action="" class="mt-3" v-on:submit.prevent>
             <div class="form-group">
               <label for="jumlah">Jumlah Pesanan</label>
               <input
@@ -36,6 +36,7 @@
                 name="jumlah"
                 id="jumlah"
                 class="form-control"
+                v-model="order.jumlah_pemesanan"
               />
             </div>
             <div class="form-group">
@@ -46,9 +47,10 @@
                 id="keterangan"
                 rows="3"
                 placeholder="Tambahkan keterangan untuk pesanan seperti pedas, sedang, atau keterangan lainnya ... (Opsional)"
+                v-model="order.keterangan"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-sm order-now">
+            <button type="submit" class="btn btn-sm order-now" @click="booking">
               <b-icon-cart class="mr-2"></b-icon-cart> Order
             </button>
           </form>
@@ -70,11 +72,37 @@ export default {
   data() {
     return {
       product: {},
+      order: {},
     };
   },
   methods: {
     setProduct(data) {
       this.product = data;
+    },
+    booking() {
+      if (this.order.jumlah_pemesanan) {
+        this.order.products = this.product;
+        axios
+          .post("http://localhost:3000/keranjangs", this.order)
+          .then(() => {
+            this.$toast.success("Success Booking.", {
+              type: "success",
+              position: "top-right",
+              duration: "2500",
+              dismissible: true,
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        this.$toast.error("Booking failed.", {
+          type: "error",
+          position: "top-right",
+          duration: "2500",
+          dismissible: true,
+        });
+      }
     },
   },
   mounted() {
