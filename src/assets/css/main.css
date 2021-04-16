@@ -37,3 +37,13 @@
 .card-title {
   font-weight: 500;
 }
+
+.breadcrumb-item {
+  color: #8a8a8a;
+  font-weight: 700;
+}
+
+.breadcrumb-item.active {
+  color: #289672;
+  font-weight: 700;
+}

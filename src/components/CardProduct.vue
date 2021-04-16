@@ -14,7 +14,9 @@
         Price: <strong>Rp. {{ product.harga }}</strong>
       </p>
     </div>
-    <a class="btn order-now">Order</a>
+    <router-link :to="'/foods/' + product.id" class="btn order-now"
+      >Order</router-link
+    >
   </div>
 </template>
 

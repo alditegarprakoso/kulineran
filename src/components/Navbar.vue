@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="#"><strong>Kulineran</strong></a>
+      <a class="navbar-brand" href="/" style="font-size: 25px !important"
+        ><strong style="color: #289672">Kulineran</strong></a
+      >
       <button
         class="navbar-toggler"
         type="button"
