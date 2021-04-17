@@ -24,7 +24,7 @@ const routes = [
     component: FoodDetail,
   },
   {
-    path: "/cart/",
+    path: "/cart",
     name: "Cart",
     component: Cart,
   },

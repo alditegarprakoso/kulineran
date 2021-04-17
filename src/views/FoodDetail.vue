@@ -82,10 +82,12 @@ export default {
     booking() {
       if (this.order.jumlah_pemesanan) {
         this.order.products = this.product;
+        this.order.totalHarga =
+          this.order.jumlah_pemesanan * this.product.harga;
         axios
           .post("http://localhost:3000/keranjangs", this.order)
           .then(() => {
-            this.$route.push({ path: "/cart" });
+            this.$router.push({ path: "/cart" });
             this.$toast.success("Success Booking.", {
               type: "success",
               position: "top-right",

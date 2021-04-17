@@ -29,9 +29,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/cart"
               >Cart
-              <b-icon-cart class="ml-2"></b-icon-cart>
-              <span class="badge badge-success ml-2 foods-cart">
-                {{ jumlah_pesanan.length }}
+              <b-icon-cart class="mr-2"></b-icon-cart>
+              <span class="badge badge-success foods-cart">
+                {{ updateCart ? updateCart.length : jumlah_pesanan.length }}
               </span>
             </router-link>
           </li>
@@ -51,6 +51,7 @@ export default {
       jumlah_pesanan: [],
     };
   },
+  props: ["updateCart"],
   methods: {
     setJumlah(data) {
       this.jumlah_pesanan = data;
