@@ -1,8 +1,7 @@
 <template>
   <div class="Foods">
-    <Navbar />
-
     <div class="container">
+      <Navbar />
       <div class="row mt-4 mb-3">
         <div class="col">
           <h2>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Navbar />
     <div class="container">
+      <Navbar />
       <Hero />
 
       <div class="row mt-5 mb-3">

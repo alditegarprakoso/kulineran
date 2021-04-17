@@ -86,6 +86,34 @@
           </div>
         </div>
       </div>
+
+      <div class="row justify-content-end">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="nama"><strong>Name:</strong></label>
+            <input
+              type="text"
+              name="nama"
+              id="nama"
+              class="form-control"
+              v-model="order.name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="table"><strong>Table:</strong></label>
+            <input
+              type="text"
+              name="table"
+              id="table"
+              class="form-control"
+              v-model="order.table"
+            />
+          </div>
+          <button class="btn order-now float-right" @click="checkout">
+            Pay <b-icon-cart-check class="ml-2"></b-icon-cart-check>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -102,6 +130,7 @@ export default {
   data() {
     return {
       keranjangs: [],
+      order: {},
     };
   },
   methods: {
@@ -126,6 +155,36 @@ export default {
             .catch((error) => console.log(error));
         })
         .catch((error) => console.log(error));
+    },
+    checkout() {
+      if (this.order.name && this.order.table) {
+        this.order.keranjangs = this.keranjangs;
+        axios
+          .post("http://localhost:3000/pesanans", this.order)
+          .then(() => {
+            // Delete All Keranjang
+            this.keranjangs.map(function (item) {
+              return axios
+                .delete("http://localhost:3000/keranjangs/" + item.id)
+                .catch((error) => console.log(error));
+            });
+            this.$router.push({ path: "/ordered-success" });
+            this.$toast.success("Ordered successfully.", {
+              type: "success",
+              position: "top-right",
+              duration: "2500",
+              dismissible: true,
+            });
+          })
+          .catch((error) => console.log(error));
+      } else {
+        this.$toast.error("Please insert your name or table.", {
+          type: "error",
+          position: "top-right",
+          duration: "2500",
+          dismissible: true,
+        });
+      }
     },
   },
   mounted() {
