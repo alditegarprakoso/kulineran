@@ -30,7 +30,9 @@
             <router-link class="nav-link" to="/cart"
               >Cart
               <b-icon-cart class="ml-2"></b-icon-cart>
-              <span class="badge badge-success ml-2 foods-cart">0</span>
+              <span class="badge badge-success ml-2 foods-cart">
+                {{ jumlah_pesanan.length }}
+              </span>
             </router-link>
           </li>
         </ul>
@@ -40,8 +42,26 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Navbar",
+  data() {
+    return {
+      jumlah_pesanan: [],
+    };
+  },
+  methods: {
+    setJumlah(data) {
+      this.jumlah_pesanan = data;
+    },
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/keranjangs")
+      .then((response) => this.setJumlah(response.data))
+      .catch((error) => console.log(error));
+  },
 };
 </script>
 

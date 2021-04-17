@@ -85,6 +85,7 @@ export default {
         axios
           .post("http://localhost:3000/keranjangs", this.order)
           .then(() => {
+            this.$route.push({ path: "/cart" });
             this.$toast.success("Success Booking.", {
               type: "success",
               position: "top-right",
